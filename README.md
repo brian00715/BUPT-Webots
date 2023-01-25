@@ -1,6 +1,6 @@
 # Introduction
 
-This project is developed based on the webots_ros offical repo with some necessary customizations for the BUPT robot team's chassis and visual algorithms simulation.
+This project is developed based on the [webots_ros](https://github.com/cyberbotics/webots_ros) offical repo with some necessary customizations for the BUPT robot team's chassis and visual algorithms simulation.
 
 # Features:star2:
 
@@ -8,13 +8,15 @@ This project is developed based on the webots_ros offical repo with some necessa
 
 - [x] Robocon 2022 R1 robot of BUPT (steer wheel chassis with a 2 DoF gripper) in [PROTO](https://www.cyberbotics.com/doc/reference/proto#!) format. The [URDF](http://wiki.ros.org/urdf) file for robot are also completed for further usage (rviz visualization, kinematics, etc.).
 
-- [ ] Localization based on GPS and Compass
+- [ ] Localization based on GPS and Compass.
 
 # Getting started:rocket:
 
-- Install Webots
+- Install Webots R2023a
   
-  > For better compatibility, this project is developed based on **Ubuntu 20.04** and **ROS Noetic**. We assume that you have already installed ROS on your computer.
+  > For better compatibility, this project is developed based on **Ubuntu 20.04** and **ROS Noetic**. We assume that you have already installed ROS on your Linux computer.
+
+  Strongly recommend installing Webots using tarball package, refer to [this doc](https://cyberbotics.com/doc/guide/installation-procedure#installing-the-tarball-package).
 
 - Clone and build this repo
   
@@ -55,7 +57,7 @@ This project is developed based on the webots_ros offical repo with some necessa
   
   - Using `ros_control`
     
-    This project has completed `ros_control` config for Robocon2022 R1 robot. You can simply publish control commands to corresponding topics. For example:
+    This project has completed [ros_control](http://wiki.ros.org/ros_control) config for Robocon2022 R1 robot. You can simply publish control commands to corresponding topics. For example:
     
     ```python
     import rospy
@@ -69,7 +71,7 @@ This project is developed based on the webots_ros offical repo with some necessa
     drive_wheel_vel_pub.publish(cmd_vel)
     ```
 
-Enjoy!:smiling_face_with_three_hearts:
+Enjoy!
 
 # Develop:wrench:
 

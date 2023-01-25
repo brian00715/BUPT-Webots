@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="rudder_chassis">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-1.1102E-16 -0.2 -0.113" rpy="0 0 0" />
+      <mass value="8.1835" />
+      <inertia ixx="0.62059" ixy="-1.2685E-16" ixz="-9.1809E-19" iyy="0.64029" iyz="-2.3108E-18" izz="1.2603" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="steer_wheel_0">
+    <inertial>
+      <origin xyz="0.00050865 1.464E-05 -0.0049387" rpy="0 0 0" />
+      <mass value="0.33845" />
+      <inertia ixx="0.0003822" ixy="2.0346E-06" ixz="-1.2317E-21" iyy="0.00031157" iyz="7.418E-22" izz="0.00044643" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_0.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8  1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="steer_wheel_0_joint" type="continuous">
+    <origin xyz="-0.3 0.1 -0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="steer_wheel_0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="drive_wheel_0">
+    <inertial>
+      <origin xyz="0.0010578 3.0446E-05 -2.2204E-16" rpy="0 0 0" />
+      <mass value="0.26071" />
+      <inertia ixx="0.00024717" ixy="2.0802E-06" ixz="-1.2293E-21" iyy="0.00017495" iyz="9.1937E-22" izz="0.00017489" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_0.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.455 0.490 0.549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_0.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="drive_wheel_0_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="steer_wheel_0" />
+    <child link="drive_wheel_0" />
+    <axis xyz="-0.99959 -0.02877 0" />
+  </joint>
+  <link name="steer_wheel_1">
+    <inertial>
+      <origin xyz="0.00050865 1.464E-05 -0.0049387" rpy="0 0 0" />
+      <mass value="0.33845" />
+      <inertia ixx="0.0003822" ixy="2.0346E-06" ixz="-4.1526E-22" iyy="0.00031157" iyz="-1.9771E-21" izz="0.00044643" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="steer_wheel_1_joint" type="continuous">
+    <origin xyz="0.3 0.1 -0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="steer_wheel_1" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="drive_wheel_1">
+    <inertial>
+      <origin xyz="0.0010578 3.0446E-05 -1.1102E-16" rpy="0 0 0" />
+      <mass value="0.26071" />
+      <inertia ixx="0.00024717" ixy="2.0802E-06" ixz="-4.2975E-22" iyy="0.00017495" iyz="-1.8244E-21" izz="0.00017489" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.455 0.490 0.549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="drive_wheel_1_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="steer_wheel_1" />
+    <child link="drive_wheel_1" />
+    <axis xyz="-0.99959 -0.02877 0" />
+  </joint>
+  <link name="steer_wheel_2">
+    <inertial>
+      <origin xyz="0.00050865 1.464E-05 -0.0049387" rpy="0 0 0" />
+      <mass value="0.33845" />
+      <inertia ixx="0.0003822" ixy="2.0346E-06" ixz="-1.8428E-22" iyy="0.00031157" iyz="3.8553E-22" izz="0.00044643" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="steer_wheel_2_joint" type="continuous">
+    <origin xyz="0.3 -0.5 -0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="steer_wheel_2" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="drive_wheel_2">
+    <inertial>
+      <origin xyz="0.0010578 3.0446E-05 0" rpy="0 0 0" />
+      <mass value="0.26071" />
+      <inertia ixx="0.00024717" ixy="2.0802E-06" ixz="-1.0834E-22" iyy="0.00017495" iyz="4.3987E-22" izz="0.00017489" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.455 0.490 0.549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="drive_wheel_2_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="steer_wheel_2" />
+    <child link="drive_wheel_2" />
+    <axis xyz="-0.99959 -0.02877 0" />
+  </joint>
+  <link name="steer_wheel_3">
+    <inertial>
+      <origin xyz="0.00050873 -1.1289E-05 -0.0049387" rpy="0 0 0" />
+      <mass value="0.33845" />
+      <inertia ixx="0.00038223" ixy="-1.5692E-06" ixz="-7.7562E-22" iyy="0.00031155" iyz="-4.4542E-21" izz="0.00044643" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.8 0.8 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/steer_wheel_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="steer_wheel_3_joint" type="continuous">
+    <origin xyz="-0.3 -0.5 -0.1" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="steer_wheel_3" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="drive_wheel_3">
+    <inertial>
+      <origin xyz="0.001058 -2.3477E-05 0" rpy="0 0 0" />
+      <mass value="0.26071" />
+      <inertia ixx="0.00024719" ixy="-1.6043E-06" ixz="-8.327E-22" iyy="0.00017493" iyz="-4.5806E-21" izz="0.00017489" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_3.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.455 0.490 0.549 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://rudder_chassis/meshes/drive_wheel_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="drive_wheel_3_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="steer_wheel_3" />
+    <child link="drive_wheel_3" />
+    <axis xyz="-0.99975 0.022184 0" />
+  </joint>
+</robot>

@@ -1,0 +1,834 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/RudderChassisRobot.proto"
+EXTERNPROTO "../protos/Robocon2022R1Robot.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2596099786425063 -0.2119789877474389 -0.9421611155969073 4.044082281549
+  position 3.1535312053321016 -1.815921253809393 2.31429833039799
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Solid {
+  rotation -0.15382114665291727 -0.9880968543518551 -0.0019134425390879603 0.0018684737137183815
+  children [
+    Shape {
+      appearance DEF base_link_material PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry DEF base_link Mesh {
+        url [
+          "../protos/robocon2023_field_meshes/base_link.STL"
+        ]
+      }
+    }
+    Solid {
+      children [
+        Shape {
+          appearance DEF red_zone_material PBRAppearance {
+            baseColor 1 0.50588 0.46275
+            roughness 1
+            metalness 0
+          }
+          geometry DEF red_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/red_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "red_zone"
+      boundingObject Group {
+        children [
+          Transform {
+            translation 4.99 3.4 -0.09
+            children [
+              Box {
+                size 1.9 4.06 0.2
+              }
+            ]
+          }
+          Transform {
+            translation -4.99 3.4 -0.09
+            children [
+              Box {
+                size 1.9 4.06 0.2
+              }
+            ]
+          }
+          Transform {
+            translation 0 0.43 -0.04
+            children [
+              Box {
+                size 11.9 1.9 0.1
+              }
+            ]
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 0 5.45 0.409
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF fosse_material PBRAppearance {
+            baseColor 0.392157 0.709804 0.870588
+            roughness 1
+            metalness 0
+          }
+          geometry DEF fosse Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/fosse.STL"
+            ]
+          }
+        }
+      ]
+      name "fosse"
+      boundingObject USE fosse
+    }
+    Solid {
+      translation 0 10.9 0
+      rotation 0 0 1 3.141593
+      children [
+        Shape {
+          appearance DEF blue_zone_material PBRAppearance {
+            baseColor 0.560784 0.905882 1
+            roughness 1
+            metalness 0
+          }
+          geometry DEF blue_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/blue_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "blue_zone"
+      boundingObject USE blue_zone
+    }
+    Solid {
+      translation -5.7 -0.25 0
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF red_ring_zone1_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF red_ring_zone1 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/red_ring_zone1.STL"
+            ]
+          }
+        }
+      ]
+      name "red_ring_zone1"
+      boundingObject USE red_ring_zone1
+    }
+    Solid {
+      translation -5.7 -0.25 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF red_ring_zone2_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF red_ring_zone2 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/red_ring_zone2.STL"
+            ]
+          }
+        }
+      ]
+      name "red_ring_zone2"
+      boundingObject USE red_ring_zone2
+    }
+    Solid {
+      translation 5.7 5.1875 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF red_retry_zone_material PBRAppearance {
+            baseColor 0.87451 0.87451 0.1333
+            roughness 1
+            metalness 0
+          }
+          geometry DEF red_retry_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/red_retry_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "red_retry_zone"
+      boundingObject USE red_retry_zone
+    }
+    Solid {
+      translation 5.7 11.15 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF blue_ring_zone1_material PBRAppearance {
+            baseColor 0.87451 0.87451 0.133333
+            roughness 1
+            metalness 0
+          }
+          geometry DEF blue_ring_zone1 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/blue_ring_zone1.STL"
+            ]
+          }
+        }
+      ]
+      name "blue_ring_zone1"
+      boundingObject USE blue_ring_zone1
+    }
+    Solid {
+      translation -5.7 11.15 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF blue_ring_zone2_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF blue_ring_zone2 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/blue_ring_zone2.STL"
+            ]
+          }
+        }
+      ]
+      name "blue_ring_zone2"
+      boundingObject USE blue_ring_zone2
+    }
+    Solid {
+      translation -5.7 5.7125 0
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF blue_retry_zone_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF blue_retry_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/blue_retry_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "blue_retry_zone"
+      boundingObject USE blue_retry_zone
+    }
+    Solid {
+      translation 0 3.7 0.2
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF anghor_red_material PBRAppearance {
+            baseColor 1 0.50588 0.46275
+            roughness 1
+            metalness 0
+          }
+          geometry DEF anghor_red Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/anghor_red.STL"
+            ]
+          }
+        }
+      ]
+      name "anghor_red"
+      boundingObject Transform {
+        translation 0.02 -0.15 0
+        children [
+          Box {
+            size 3.4 0.3 6.8
+          }
+        ]
+      }
+    }
+    Solid {
+      translation 0 3.7 0.2
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF anghor_red_ring_zone_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF anghor_red_ring_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/anghor_red_ring_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "anghor_red_ring_zone"
+      boundingObject USE anghor_red_ring_zone
+    }
+    Solid {
+      translation 0 5.45 0.409
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF angkor_center_material PBRAppearance {
+            baseColor 0.847059 0.482353 0.258823
+            roughness 1
+            metalness 0
+          }
+          geometry DEF angkor_center Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/angkor_center.STL"
+            ]
+          }
+        }
+      ]
+      name "angkor_center"
+      boundingObject USE angkor_center
+    }
+    Solid {
+      translation 0 7.2 0.199
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF angkor_blue_material PBRAppearance {
+            baseColor 0.560784 0.905882 1
+            roughness 1
+            metalness 0
+          }
+          geometry DEF angkor_blue Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/angkor_blue.STL"
+            ]
+          }
+        }
+      ]
+      name "angkor_blue"
+      boundingObject USE angkor_blue
+    }
+    Solid {
+      translation 0 7.2 0.199
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF angkor_blue_ring_zone_material PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry DEF angkor_blue_ring_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/angkor_blue_ring_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "angkor_blue_ring_zone"
+      boundingObject USE angkor_blue_ring_zone
+    }
+    Solid {
+      translation 3.2 8.65 0.208
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_2_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_2 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_2.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_2"
+      boundingObject USE cylinder1_2
+    }
+    Solid {
+      translation 0 8.65 0.208
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_6_material PBRAppearance {
+            baseColor 0.64706 0.51765 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_6 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_6.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_6"
+      boundingObject USE cylinder1_6
+    }
+    Solid {
+      translation -3.2 8.65 0.208
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF cylinder1_3_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_3 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_3.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_3"
+      boundingObject USE cylinder1_3
+    }
+    Solid {
+      translation -3.2 2.25 0.209
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_4_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_4 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_4.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_4"
+      boundingObject USE cylinder1_4
+    }
+    Solid {
+      translation 0 2.25 0.209
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_5_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_5 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_5.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_5"
+      boundingObject USE cylinder1_5
+    }
+    Solid {
+      translation -1.3 6.75 0.409
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_7_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_7 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_7.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_7"
+      boundingObject USE cylinder1_7
+    }
+    Solid {
+      translation 1.3 6.75 0.409
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_9_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_9 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_9.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_9"
+      boundingObject USE cylinder1_9
+    }
+    Solid {
+      translation 1.3 4.15 0.409
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_10_material PBRAppearance {
+            baseColor 0.64706 0.51765 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_10 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_10.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_10"
+      boundingObject USE cylinder1_10
+    }
+    Solid {
+      translation -1.3 4.15 0.409
+      rotation 0.5773502691896258 0.5773502691896258 0.5773502691896258 2.094395
+      children [
+        Shape {
+          appearance DEF cylinder1_8_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_8 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_8.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_8"
+      boundingObject USE cylinder1_8
+    }
+    Solid {
+      translation 0 5.45 0.409
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF cylinder3_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder3 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder3.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder3"
+      boundingObject USE cylinder3
+    }
+    Solid {
+      translation 3.2 2.25 0.209
+      rotation 0.5773496025226483 0.5773516025212714 0.5773496025226483 2.094399
+      children [
+        Shape {
+          appearance DEF cylinder1_1_material PBRAppearance {
+            baseColor 0.647059 0.517647 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF cylinder1_1 Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/cylinder1_1.STL"
+            ]
+          }
+        }
+      ]
+      name "cylinder1_1"
+      boundingObject USE cylinder1_1
+    }
+    Solid {
+      translation 0 10.9 0
+      rotation 0 0 1 3.1416
+      children [
+        Shape {
+          appearance DEF blue_start_zone_material PBRAppearance {
+            baseColor 0.137255 0.133333 0.878431
+            roughness 1
+            metalness 0
+          }
+          geometry DEF blue_start_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/blue_start_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "blue_start_zone"
+      boundingObject USE blue_start_zone
+    }
+    Solid {
+      children [
+        Shape {
+          appearance DEF red_start_zone_material PBRAppearance {
+            baseColor 0.87451 0.137255 0.129412
+            roughness 1
+            metalness 0
+          }
+          geometry DEF red_start_zone Mesh {
+            url [
+              "../protos/robocon2023_field_meshes/red_start_zone.STL"
+            ]
+          }
+        }
+      ]
+      name "red_start_zone"
+      boundingObject USE red_start_zone
+    }
+  ]
+  name "robocon2023_field"
+  boundingObject USE base_link
+}
+RudderChassisRobot {
+  hidden linearVelocity_0 4.605419967270992e-08 -1.7642286324565363e-07 4.0910236019007555e-08
+  hidden angularVelocity_0 -1.8586374024041946e-07 1.6265209930247627e-07 -1.7560154183798885e-07
+  hidden translation_1 -0.3 0.1 -0.1
+  hidden rotation_1 0 0 1 2.166364412949936e-06
+  hidden linearVelocity_1 4.410818980902582e-08 -2.0410192792042262e-08 3.6868828109991763e-08
+  hidden angularVelocity_1 -1.867605677115889e-07 9.295877968307045e-08 9.868260591035864e-06
+  hidden translation_2 0 0 0
+  hidden rotation_2 0.9995860611388867 0.02876988663248509 0 6.933957195835221e-06
+  hidden linearVelocity_2 -1.129799694347306e-08 8.232315600161336e-08 3.980184550204537e-08
+  hidden angularVelocity_2 -8.107063422514323e-06 -1.3261183534795294e-07 9.865612737721642e-06
+  hidden translation_3 0.3 0.1 -0.1
+  hidden rotation_3 0 0 1 4.2146848510894035e-08
+  hidden linearVelocity_3 5.938247636291738e-08 -3.6513797605333096e-07 -6.685922838233334e-08
+  hidden angularVelocity_3 -1.9464033714570688e-07 9.881789481256396e-08 8.976353680807016e-06
+  hidden translation_4 0 0 0
+  hidden rotation_4 0.9995860611388866 0.02876988663248509 0 1.4748386182378413e-06
+  hidden linearVelocity_4 1.9215712560127237e-08 -5.018511738850167e-07 -7.01006545273756e-08
+  hidden angularVelocity_4 1.0437289179190781e-05 4.0563365995720763e-07 8.980374698401344e-06
+  hidden translation_5 0.3 -0.5 -0.1
+  hidden rotation_5 0 0 -1 4.339283638763745e-07
+  hidden linearVelocity_5 3.673690205269369e-08 -1.756290121147635e-07 5.0895694559589904e-08
+  hidden angularVelocity_5 -1.8957022716176122e-07 7.535262336871893e-08 1.1876767181931963e-05
+  hidden translation_6 0 0 0
+  hidden rotation_6 0.9995860611388866 0.02876988663248509 0 3.7468050525460067e-06
+  hidden linearVelocity_6 7.995294490800377e-08 -1.2196936946262003e-07 5.389654889648249e-08
+  hidden angularVelocity_6 -4.875404262475728e-06 -6.055354973141401e-08 1.1873992118405819e-05
+  hidden translation_7 -0.3 -0.5 -0.1
+  hidden rotation_7 0 0 1 2.660097266972007e-06
+  hidden linearVelocity_7 4.9814337901673776e-08 -1.1742498409296115e-07 1.4259333195439715e-07
+  hidden angularVelocity_7 -1.9174957242900585e-07 6.423261968877492e-08 1.3395124568727357e-05
+  hidden translation_8 0 0 0
+  hidden rotation_8 0.9997539028688988 -0.022184086602894372 0 1.1030885889126051e-06
+  hidden linearVelocity_8 1.0615437065606413e-07 -1.1079375429485843e-07 1.3972421570579934e-07
+  hidden angularVelocity_8 -5.067945707382092e-06 1.7114458842039532e-07 1.3392714366104289e-05
+  translation -0.0004199510119990108 0.18981159668878567 0.14255969630652277
+  rotation 0.9981614363904473 -0.05980338108956914 -0.009864203628013575 0.007144754718551141
+}
+Robotino3 {
+  hidden linearVelocity_0 -7.177506615882808e-07 1.0994812832965543e-07 -1.3592944642604924e-09
+  hidden angularVelocity_0 1.8159034903352052e-09 1.2716777317109934e-09 1.2727379259858332e-08
+  hidden translation_1 0 0 0
+  hidden rotation_1 0 -1 0 2.9802322387695313e-08
+  hidden linearVelocity_1 -7.175589464589739e-07 1.0598494442719851e-07 -1.1169807407895863e-09
+  hidden angularVelocity_1 9.492165195624439e-08 1.2710172564764941e-09 1.2848938397765246e-08
+  hidden translation_2 0 0 0
+  hidden rotation_2 0 1 0 0
+  hidden linearVelocity_2 -7.166956021809055e-07 1.1148361679934305e-07 -1.7420719018446063e-09
+  hidden angularVelocity_2 1.8425542630882418e-09 1.3689920294749798e-09 1.272684111538565e-08
+  hidden translation_3 0 0 0
+  hidden rotation_3 0 1 0 0
+  hidden linearVelocity_3 -7.184318034121339e-07 1.1148949337870584e-07 -1.175356658222883e-09
+  hidden angularVelocity_3 1.85476022613905e-09 1.1941711632262186e-09 1.272690157033813e-08
+  translation -1.0000295684820548 4.7465103278834385e-06 0.005675730475962468
+  rotation -0.18087755698039318 -0.9835056223931525 1.0092690910696969e-05 0.0013338569113303268
+  name "omni_chassis"
+  controller "ros"
+  controllerArgs [
+    "--name=omni_chassis"
+    "--auto-publish"
+    "--robot-description=omni_chassis/"
+  ]
+  supervisor TRUE
+  topSlot [
+    Robotino3HokuyoMountingSupport {
+      extensionSlot [
+        HokuyoUtm30lx {
+        }
+      ]
+    }
+  ]
+  cameraSlot [
+    Robotino3WebcamMountingSupport {
+      extensionSlot [
+        Astra {
+          translation 0.013 -0.03 0.02
+          rotation 1 0 0 -1.5707996938995747
+        }
+      ]
+    }
+  ]
+  bottomSlot [
+    Robotino3SickMountingSupport {
+    }
+  ]
+}
+Group {
+  children [
+    Solid {
+      translation 1.6480833041197829 -0.0010909624893123315 0.353881719184269
+      rotation -0.2019383506801974 -0.25952231935168446 -0.9443881978735672 0.006420211721890309
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.533333 0.541176 0.521569
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.3 0.1 0.7
+          }
+        }
+      ]
+      boundingObject Box {
+        size 0.3 0.1 0.7
+      }
+      physics Physics {
+      }
+      linearVelocity 0.0001945789128132624 2.494759010024531e-05 -6.854502006362519e-05
+      angularVelocity -7.363485350086912e-05 0.0005579300199463807 3.3465898727410234e-08
+    }
+    Solid {
+      translation 1.9804399083908977 -0.0009101503341501753 0.3543698677382485
+      rotation -0.2025082889333166 -0.1894082785452957 0.9607886848479263 0.007391254582375206
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.533333 0.541176 0.521569
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.3 0.1 0.7
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject Box {
+        size 0.3 0.1 0.7
+      }
+      physics Physics {
+      }
+      linearVelocity 0.00019446781827984588 2.5359770469490134e-05 -7.178464513314613e-05
+      angularVelocity -7.255667732007794e-05 0.0005553875194416061 -2.8006883449517607e-06
+    }
+    Solid {
+      translation 1.8046312981893022 0.19807750264329205 0.3538542973907854
+      rotation 0.006518758399061625 -0.008259248465605332 -0.9999446437697028 1.5711931078446713
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.533333 0.541176 0.521569
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.3 0.1 0.7
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject Box {
+        size 0.3 0.1 0.7
+      }
+      physics Physics {
+      }
+      linearVelocity 0.0001945961545089659 3.0963937385113915e-05 -8.993569456626118e-05
+      angularVelocity -5.4755808023671004e-05 0.0005596038072465525 -1.5073621996691687e-06
+    }
+    Solid {
+      translation 1.799357508366158 -0.20185774561960293 0.3541021956769762
+      rotation 0.014466873188725362 -0.015441141852723222 -0.9997761152970327 1.571982611581179
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.533333 0.541176 0.521569
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.3 0.1 0.7
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject Box {
+        size 0.3 0.1 0.7
+      }
+      physics Physics {
+      }
+      linearVelocity 0.000194256400969823 2.00779046012317e-05 -8.389432753024546e-05
+      angularVelocity -8.622491470724713e-05 0.0005591512886746542 -2.033621104382287e-06
+    }
+  ]
+}
+Robocon2022R1Robot {
+  hidden linearVelocity_0 0.00026456237528327476 4.522582985056408e-05 0.001106785682568378
+  hidden angularVelocity_0 0.00011091254424744203 -0.001678592863112125 4.137772718663955e-06
+  hidden translation_2 -0.185 0.185 0.011
+  hidden rotation_2 0 0 1 0
+  hidden linearVelocity_2 0.00031233657891283604 4.765048695484192e-05 0.0008175308140331835
+  hidden angularVelocity_2 0.00011091259760915972 -0.0016786178888774776 4.096120897774013e-06
+  hidden translation_3 0 0 0
+  hidden rotation_3 0 1 0 0.6400000045431501
+  hidden linearVelocity_3 0.00032159671756680643 4.8306602765086794e-05 0.0008141945952273213
+  hidden angularVelocity_3 0.00011033357629071819 -0.0016786228287863944 1.617109934568993e-06
+  hidden translation_4 0.185 0.185 0.011
+  hidden rotation_4 0 0 1 0
+  hidden linearVelocity_4 0.00031125888985381625 4.904524256163495e-05 0.0014385954780516026
+  hidden angularVelocity_4 0.00011091259644464226 -0.001678617888928861 4.096122324515891e-06
+  hidden translation_5 0 0 0
+  hidden rotation_5 0 1 0 0.6400000045934698
+  hidden linearVelocity_5 0.00032051898722408666 4.9701395076799947e-05 0.0014352513023245725
+  hidden angularVelocity_5 0.00011033358719192139 -0.001678622829208584 1.6171271271503166e-06
+  hidden translation_6 0.185 -0.190626 0.011
+  hidden rotation_6 0 0 1 0
+  hidden linearVelocity_6 0.0003114556654183438 4.902635365647089e-05 0.0013969109430779312
+  hidden angularVelocity_6 0.00011091259530306333 -0.0016786178883937495 4.096123549540289e-06
+  hidden translation_7 0 0 0
+  hidden rotation_7 0 1 0 0.6400000045820269
+  hidden linearVelocity_7 0.00032071581287962484 4.968249410751653e-05 0.0013935582386423902
+  hidden angularVelocity_7 0.00011033359171590788 -0.0016786228286966337 1.6171243698071205e-06
+  hidden translation_8 -0.185 -0.190626 0.011
+  hidden rotation_8 0 0 1 0
+  hidden linearVelocity_8 0.00031253335447599563 4.763159804969453e-05 0.0007758462790585484
+  hidden angularVelocity_8 0.00011091259646879056 -0.0016786178883430578 4.096122118646747e-06
+  hidden translation_9 0 0 0
+  hidden rotation_9 0 1 0 0.6400000045317044
+  hidden linearVelocity_9 0.00032179354322514186 4.82877017958331e-05 0.0007725015315429638
+  hidden angularVelocity_9 0.00011033358081595038 -0.0016786228282748626 1.6171071731185806e-06
+  hidden translation_11 0 0 0
+  hidden rotation_11 -1 0 0 5.693725697559972e-07
+  hidden linearVelocity_11 6.988232980582804e-05 3.238573709834552e-05 0.0011494303240659302
+  hidden angularVelocity_11 0.0001109070668194935 -0.0016785909299892763 4.141039588698403e-06
+  hidden translation_12 -2.7235632520248776e-09 0.1167 -0.062317
+  hidden rotation_12 0 0 1 0
+  hidden linearVelocity_12 8.241008366428494e-05 3.295462317597614e-05 0.001043276952107626
+  hidden angularVelocity_12 0.00011090417808266592 -0.001678594695241016 4.141225432812869e-06
+  hidden translation_13 0 0.1167 -0.06231779606929504
+  hidden rotation_13 0 0 1 0
+  hidden linearVelocity_13 8.192224805745398e-05 3.3447680848308416e-05 0.001266745565164321
+  hidden angularVelocity_13 0.00011090416409010459 -0.001678587108579748 4.141078772576891e-06
+  translation 1.8304635416895239 0.0008618078494732799 0.7329957736311471
+  rotation -0.9162851015573562 -0.4005085450304706 -0.003810252170244152 0.002516622902310205
+}

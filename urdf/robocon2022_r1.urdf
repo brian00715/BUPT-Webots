@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="robocon2022_r1_simplified">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.351 0.245000000003016 0.01" rpy="0 0 0" />
+      <mass value="0.0132167544156088" />
+      <inertia ixx="1.50197709928808E-06" ixy="-5.94069592157178E-37" ixz="-1.94111717079111E-23" iyy="1.50197709928808E-06" iyz="1.37753244236986E-37" izz="2.73931323809453E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="chassis_body">
+    <inertial>
+      <origin xyz="-0.000688430783615746 -0.019457841628204 0.0347181498764458" rpy="0 0 0" />
+      <mass value="6.24664940697884" />
+      <inertia ixx="0.0461486077788551" ixy="1.75319310562465E-13" ixz="1.94219611889693E-07" iyy="0.058844006799245" iyz="3.86628659903872E-07" izz="0.102246114390569" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/chassis_body.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/chassis_body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="chassis_body_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="chassis_body" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="wheel3_steer">
+    <inertial>
+      <origin xyz="4.2556483337286E-09 0.00102992315637235 0.00609141992606793" rpy="0 0 0" />
+      <mass value="0.363584280103576" />
+      <inertia ixx="0.000461108833621146" ixy="1.91383923140755E-11" ixz="-1.6979023397469E-11" iyy="0.000612765060786162" iyz="2.26296480821955E-07" izz="0.00087263427190016" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel3_steer_joint" type="continuous">
+    <origin xyz="0.184999999999992 -0.190626374887769 0.0110000000000103" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel3_steer" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="wheel3_drive">
+    <inertial>
+      <origin xyz="1.38327596710397E-07 -0.000813975883675572 3.73325027278396E-05" rpy="0 0 0" />
+      <mass value="0.401054038556159" />
+      <inertia ixx="0.000391338443211813" ixy="8.58339752247451E-10" ixz="-1.91269286332276E-09" iyy="0.000661304019748952" iyz="2.38588693510325E-07" izz="0.0003908145238052" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel3_drive_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="wheel3_steer" />
+    <child link="wheel3_drive" />
+    <axis xyz="0 -1 0" />
+  </joint>
+  <link name="wheel1_steer">
+    <inertial>
+      <origin xyz="4.25460693065371E-09 0.00102992315886763 0.00609141992607102" rpy="0 0 0" />
+      <mass value="0.36358428010353" />
+      <inertia ixx="0.000461108833621143" ixy="1.91383846026875E-11" ixz="-1.69790348542586E-11" iyy="0.000612765060786142" iyz="2.26296480819783E-07" izz="0.000872634271900149" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel1_steer_joint" type="continuous">
+    <origin xyz="-0.184999999999993 0.185000000000312 0.0110000000000081" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel1_steer" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="wheel1_drive">
+    <inertial>
+      <origin xyz="1.38326552281964E-07 -0.000813975881174767 3.73325027299976E-05" rpy="0 0 0" />
+      <mass value="0.401054038556159" />
+      <inertia ixx="0.000391338443211813" ixy="8.58339752152584E-10" ixz="-1.9126928633852E-09" iyy="0.000661304019748953" iyz="2.38588693510404E-07" izz="0.0003908145238052" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel1_drive_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="wheel1_steer" />
+    <child link="wheel1_drive" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="wheel2_steer">
+    <inertial>
+      <origin xyz="4.25815249727179E-09 0.0010299231574194 0.00609141992606885" rpy="0 0 0" />
+      <mass value="0.363584280103632" />
+      <inertia ixx="0.000461108833621168" ixy="1.91383872047727E-11" ixz="-1.69790369113317E-11" iyy="0.000612765060786179" iyz="2.26296480822545E-07" izz="0.000872634271900183" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel2_steer_joint" type="continuous">
+    <origin xyz="0.184999999999994 0.185000000000313 0.0110000000000081" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel2_steer" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="wheel2_drive">
+    <inertial>
+      <origin xyz="1.38330098042871E-07 -0.000813975882630824 3.73325027300184E-05" rpy="0 0 0" />
+      <mass value="0.401054038556158" />
+      <inertia ixx="0.000391338443211813" ixy="8.58339752152584E-10" ixz="-1.91269286341184E-09" iyy="0.000661304019748952" iyz="2.3858869351028E-07" izz="0.0003908145238052" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.101960784313725 0.101960784313725 0.101960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel2_drive_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="wheel2_steer" />
+    <child link="wheel2_drive" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="wheel4_steer">
+    <inertial>
+      <origin xyz="4.25565641060111E-09 0.00102992315636831 0.00609141992606862" rpy="0 0 0" />
+      <mass value="0.363584280103545" />
+      <inertia ixx="0.000461108833621139" ixy="1.9138383098357E-11" ixz="-1.69790362062226E-11" iyy="0.000612765060786149" iyz="2.26296480820544E-07" izz="0.000872634271900148" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel4_steer_joint" type="continuous">
+    <origin xyz="-0.184999999999993 -0.190626374887773 0.0110000000000103" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="wheel4_steer" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="wheel4_drive">
+    <inertial>
+      <origin xyz="1.3832760177579E-07 -0.000813975883675627 3.73325027278326E-05" rpy="0 0 0" />
+      <mass value="0.401054038556158" />
+      <inertia ixx="0.000391338443211812" ixy="8.58339751949296E-10" ixz="-1.91269286338702E-09" iyy="0.000661304019748951" iyz="2.38588693510301E-07" izz="0.000390814523805199" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/wheel_drive.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel4_drive_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="wheel4_steer" />
+    <child link="wheel4_drive" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <link name="gripper_base">
+    <inertial>
+      <origin xyz="-0.0162714841787159 0.00438288183838653 -0.0833650770990987" rpy="0 0 0" />
+      <mass value="0.608015280347814" />
+      <inertia ixx="0.000758775217853689" ixy="-4.29845874023247E-09" ixz="4.67386668049812E-09" iyy="0.00121660821190195" iyz="1.23184462535032E-06" izz="0.000651801178873674" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_base.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_base_joint" type="fixed">
+    <origin xyz="0.000900000000165768 0.247000000000306 0.237999999999999" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="gripper_base" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="gripper_link1">
+    <inertial>
+      <origin xyz="1.50410794930167E-11 0.117386971070829 -0.0768482416434615" rpy="0 0 0" />
+      <mass value="0.26340677659923" />
+      <inertia ixx="0.000132678284764725" ixy="-3.92060682027975E-19" ixz="1.39509055302651E-19" iyy="0.000294342419796551" iyz="4.42512609522839E-06" izz="0.000254857495891831" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_link1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_link1_joint" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="gripper_base" />
+    <child link="gripper_link1" />
+    <axis xyz="-1 0 0" />
+    <limit lower="-3.33" upper="0.45" effort="0" velocity="0" />
+  </joint>
+  <link name="gripper_tip1">
+    <inertial>
+      <origin xyz="-0.0665353017900291 0.0514005995430306 -0.0219203692427342" rpy="0 0 0" />
+      <mass value="0.0812520498089319" />
+      <inertia ixx="4.67859772595514E-05" ixy="1.33690084419114E-06" ixz="3.10572239132725E-07" iyy="3.12707158468051E-05" iyz="-2.49634820383674E-06" izz="5.78784059483058E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_tip1.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.666666666666667 0.698039215686274 0.768627450980392 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_tip1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_tip1_joint" type="prismatic">
+    <origin xyz="0 0.116697188684158 -0.0623165741863268" rpy="0 0 0" />
+    <parent link="gripper_link1" />
+    <child link="gripper_tip1" />
+    <axis xyz="-1 0 0" />
+    <limit lower="0" upper="0.05" effort="0" velocity="0" />
+  </joint>
+  <link name="gripper_tip2">
+    <inertial>
+      <origin xyz="0.0665353018128306 0.051391246149763 -0.0218374195341841" rpy="0 0 0" />
+      <mass value="0.0812520498089319" />
+      <inertia ixx="4.67859772595515E-05" ixy="-1.37249165943429E-06" ixz="5.06238104517842E-09" iyy="3.15062917078577E-05" iyz="-3.527660396782E-06" izz="5.76428300872338E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_tip2.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://bupt_webots/protos/robocon2022_r1_meshes/gripper_tip2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="gripper_tip2_joint" type="prismatic">
+    <origin xyz="0 0.116697188684158 -0.0623165741863268" rpy="0 0 0" />
+    <parent link="gripper_link1" />
+    <child link="gripper_tip2" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="0.05" effort="0" velocity="0" />
+  </joint>
+</robot>

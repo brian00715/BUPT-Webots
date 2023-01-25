@@ -1,0 +1,91 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/festo/robotino3/protos/Robotino3.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/festo/robotino3/protos/Robotino3HokuyoMountingSupport.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/festo/robotino3/protos/Robotino3WebcamMountingSupport.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/festo/robotino3/protos/Robotino3SickMountingSupport.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/devices/hokuyo/protos/HokuyoUtm30lx.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/devices/orbbec/protos/Astra.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/robotnik/summit_xl_steel/protos/SummitXlSteel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.27103838176946216 0.23051457330519973 0.9345593759102271 1.7984414623534484
+  position 1.2636630445053625 -3.5626487464110084 3.268210131913845
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 12 12
+  wallHeight 0.5
+}
+SummitXlSteel {
+  hidden position_0_0 -0.02261990089222023
+  hidden position_0_1 -0.00025759653476311624
+  hidden position_0_2 0.00015289730298913103
+  hidden position_0_3 0.0002657862164042659
+  hidden translation_7 0.2224271201232963 -0.20449996661010172 0.00318501571469255
+  hidden rotation_7 0.9998720991239872 -0.01130894455374327 0.011308986093892368 1.5709279090556425
+  hidden translation_8 0.22249835752061156 0.20450003337390876 0.003184119736572037
+  hidden rotation_8 0.9999999834110676 -0.00012879779285556407 0.00012879826595714352 1.5708000165889273
+  hidden translation_9 -0.22250033210028478 0.2045000329443426 0.003137893381671161
+  hidden rotation_9 0.9999999941556251 7.644837038564293e-05 -7.644865119670298e-05 1.5708000058443736
+  hidden translation_10 -0.22249997781865558 -0.20449996703966933 0.0031396226671876154
+  hidden rotation_10 0.999999982339487 0.00013289261849475467 -0.00013289310663749555 1.5708000176605101
+  translation -0.0031202752653302643 1.3592745994537563 0.08972170062046715
+  rotation 0.0011756532703767716 0.038459110469024164 0.9992594831480556 0.0029182271353638644
+  name "mecanum_chassis"
+  controller "ros"
+  controllerArgs [
+    "--robot-description=mecanum_chassis/"
+    "--auto-publish"
+    "--name=mecanum_chassis"
+  ]
+  supervisor TRUE
+}
+Robotino3 {
+  hidden position_0_0 -7.1825651506719784e-09
+  hidden position_0_1 -1.677194796965162e-12
+  hidden position_0_2 3.1621513275985998e-09
+  hidden rotation_1 0 -0.9999999999999999 0 6.182707951886156
+  hidden rotation_2 0 1 0 0.4719875170054872
+  hidden rotation_3 0 -1 0 0.2703595343584545
+  translation -6.203477966488158e-05 -0.0022628241607112174 -0.002478001083035697
+  rotation 0.006407287503209578 0.08284420118812258 0.9965419133164211 0.0059351355130468336
+  name "omni_chassis"
+  controller "ros"
+  controllerArgs [
+    "--name=omni_chassis"
+    "--auto-publish"
+    "--robot-description=omni_chassis/"
+  ]
+  supervisor TRUE
+  topSlot [
+    Robotino3HokuyoMountingSupport {
+      extensionSlot [
+        HokuyoUtm30lx {
+        }
+      ]
+    }
+  ]
+  cameraSlot [
+    Robotino3WebcamMountingSupport {
+      extensionSlot [
+        Astra {
+          translation 0.013 -0.03 0.02
+          rotation 1 0 0 -1.5707996938995747
+        }
+      ]
+    }
+  ]
+  bottomSlot [
+    Robotino3SickMountingSupport {
+    }
+  ]
+}

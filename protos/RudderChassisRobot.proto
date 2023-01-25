@@ -1,0 +1,376 @@
+#VRML_SIM R2022b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the RudderChassis
+# Extracted from: /home/smkk/wbc_ws/src/rudder_chassis/urdf/rudder_chassis.urdf
+
+PROTO RudderChassisRobot [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "RudderChassis"  # Is `Robot.name`.
+  field  SFString    controller      "ros"           # Is `Robot.controller`.
+  field  MFString    controllerArgs  [
+    "--robot-description=rudder_chassis/"
+    "--auto-publish"
+    "--name=rudder_chassis"
+  ]          
+  field  SFString    customData      ""               # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE            # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE             # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE            # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance DEF base_link_material PBRAppearance {
+          baseColor 0.000000 0.000000 0.000000
+          roughness 1.000000
+          metalness 0
+        }
+        geometry DEF base_link Mesh {
+          url "../protos/rudder_chassis_meshes/base_link.STL"
+        }
+      }
+      DEF steer_wheel_0_joint HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 0.000000 1.000000
+          anchor -0.300000 0.100000 -0.100000
+        }
+        device [
+          RotationalMotor {
+            name "steer_wheel_0_joint"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "steer_wheel_0_joint_sensor"
+          }
+        ]
+        endPoint DEF steer_wheel_0 Solid {
+          translation -0.300000 0.100000 -0.100000
+          children [
+            Shape {
+              appearance DEF steer_wheel_0_material PBRAppearance {
+                baseColor 0.800000 0.800000 0.800000
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF steer_wheel_0 Mesh {
+                url "../protos/rudder_chassis_meshes/steer_wheel_0.STL"
+              }
+            }
+            DEF drive_wheel_0_joint HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -0.999590 -0.028770 0.000000
+              }
+              device [
+                RotationalMotor {
+                  name "drive_wheel_0_joint"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "drive_wheel_0_joint_sensor"
+                }
+              ]
+              endPoint DEF drive_wheel_0 Solid {
+                children [
+                  Shape {
+                    appearance DEF drive_wheel_0_material PBRAppearance {
+                      baseColor 0.455000 0.490000 0.549000
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF drive_wheel_0 Mesh {
+                      url "../protos/rudder_chassis_meshes/drive_wheel_0.STL"
+                    }
+                  }
+                ]
+                name "drive_wheel_0"
+                boundingObject USE drive_wheel_0
+                physics Physics {
+                  density -1
+                  mass 0.260710
+                  centerOfMass [ 0.001058 0.000030 -0.000000 ]
+                  inertiaMatrix [
+                    2.471700e-04 1.749500e-04 1.748900e-04
+                    2.080200e-06 -1.229300e-21 9.193700e-22
+                  ]
+                }
+              }
+            }
+          ]
+          name "steer_wheel_0"
+          boundingObject USE steer_wheel_0
+          physics Physics {
+            density -1
+            mass 0.338450
+            centerOfMass [ 0.000509 0.000015 -0.004939 ]
+            inertiaMatrix [
+              3.822000e-04 3.115700e-04 4.464300e-04
+              2.034600e-06 -1.231700e-21 7.418000e-22
+            ]
+          }
+        }
+      }
+      DEF steer_wheel_1_joint HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 0.000000 1.000000
+          anchor 0.300000 0.100000 -0.100000
+        }
+        device [
+          RotationalMotor {
+            name "steer_wheel_1_joint"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "steer_wheel_1_joint_sensor"
+          }
+        ]
+        endPoint DEF steer_wheel_1 Solid {
+          translation 0.300000 0.100000 -0.100000
+          children [
+            Shape {
+              appearance DEF steer_wheel_1_material PBRAppearance {
+                baseColor 0.800000 0.800000 0.800000
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF steer_wheel_1 Mesh {
+                url "../protos/rudder_chassis_meshes/steer_wheel_1.STL"
+              }
+            }
+            DEF drive_wheel_1_joint HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -0.999590 -0.028770 0.000000
+              }
+              device [
+                RotationalMotor {
+                  name "drive_wheel_1_joint"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "drive_wheel_1_joint_sensor"
+                }
+              ]
+              endPoint DEF drive_wheel_1 Solid {
+                children [
+                  Shape {
+                    appearance DEF drive_wheel_1_material PBRAppearance {
+                      baseColor 0.455000 0.490000 0.549000
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF drive_wheel_1 Mesh {
+                      url "../protos/rudder_chassis_meshes/drive_wheel_1.STL"
+                    }
+                  }
+                ]
+                name "drive_wheel_1"
+                boundingObject USE drive_wheel_1
+                physics Physics {
+                  density -1
+                  mass 0.260710
+                  centerOfMass [ 0.001058 0.000030 -0.000000 ]
+                  inertiaMatrix [
+                    2.471700e-04 1.749500e-04 1.748900e-04
+                    2.080200e-06 -4.297500e-22 -1.824400e-21
+                  ]
+                }
+              }
+            }
+          ]
+          name "steer_wheel_1"
+          boundingObject USE steer_wheel_1
+          physics Physics {
+            density -1
+            mass 0.338450
+            centerOfMass [ 0.000509 0.000015 -0.004939 ]
+            inertiaMatrix [
+              3.822000e-04 3.115700e-04 4.464300e-04
+              2.034600e-06 -4.152600e-22 -1.977100e-21
+            ]
+          }
+        }
+      }
+      DEF steer_wheel_2_joint HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 0.000000 1.000000
+          anchor 0.300000 -0.500000 -0.100000
+        }
+        device [
+          RotationalMotor {
+            name "steer_wheel_2_joint"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "steer_wheel_2_joint_sensor"
+          }
+        ]
+        endPoint DEF steer_wheel_2 Solid {
+          translation 0.300000 -0.500000 -0.100000
+          children [
+            Shape {
+              appearance DEF steer_wheel_2_material PBRAppearance {
+                baseColor 0.800000 0.800000 0.800000
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF steer_wheel_2 Mesh {
+                url "../protos/rudder_chassis_meshes/steer_wheel_2.STL"
+              }
+            }
+            DEF drive_wheel_2_joint HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -0.999590 -0.028770 0.000000
+              }
+              device [
+                RotationalMotor {
+                  name "drive_wheel_2_joint"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "drive_wheel_2_joint_sensor"
+                }
+              ]
+              endPoint DEF drive_wheel_2 Solid {
+                children [
+                  Shape {
+                    appearance DEF drive_wheel_2_material PBRAppearance {
+                      baseColor 0.455000 0.490000 0.549000
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF drive_wheel_2 Mesh {
+                      url "../protos/rudder_chassis_meshes/drive_wheel_2.STL"
+                    }
+                  }
+                ]
+                name "drive_wheel_2"
+                boundingObject USE drive_wheel_2
+                physics Physics {
+                  density -1
+                  mass 0.260710
+                  centerOfMass [ 0.001058 0.000030 0.000000 ]
+                  inertiaMatrix [
+                    2.471700e-04 1.749500e-04 1.748900e-04
+                    2.080200e-06 -1.083400e-22 4.398700e-22
+                  ]
+                }
+              }
+            }
+          ]
+          name "steer_wheel_2"
+          boundingObject USE steer_wheel_2
+          physics Physics {
+            density -1
+            mass 0.338450
+            centerOfMass [ 0.000509 0.000015 -0.004939 ]
+            inertiaMatrix [
+              3.822000e-04 3.115700e-04 4.464300e-04
+              2.034600e-06 -1.842800e-22 3.855300e-22
+            ]
+          }
+        }
+      }
+      DEF steer_wheel_3_joint HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 0.000000 1.000000
+          anchor -0.300000 -0.500000 -0.100000
+        }
+        device [
+          RotationalMotor {
+            name "steer_wheel_3_joint"
+            maxTorque 10000
+          }
+          PositionSensor {
+            name "steer_wheel_3_joint_sensor"
+          }
+        ]
+        endPoint DEF steer_wheel_3 Solid {
+          translation -0.300000 -0.500000 -0.100000
+          children [
+            Shape {
+              appearance DEF steer_wheel_3_material PBRAppearance {
+                baseColor 0.800000 0.800000 0.800000
+                roughness 1.000000
+                metalness 0
+              }
+              geometry DEF steer_wheel_3 Mesh {
+                url "../protos/rudder_chassis_meshes/steer_wheel_3.STL"
+              }
+            }
+            DEF drive_wheel_3_joint HingeJoint {
+              jointParameters HingeJointParameters {
+                axis -0.999750 0.022184 0.000000
+              }
+              device [
+                RotationalMotor {
+                  name "drive_wheel_3_joint"
+                  maxTorque 10000
+                }
+                PositionSensor {
+                  name "drive_wheel_3_joint_sensor"
+                }
+              ]
+              endPoint DEF drive_wheel_3 Solid {
+                children [
+                  Shape {
+                    appearance DEF drive_wheel_3_material PBRAppearance {
+                      baseColor 0.455000 0.490000 0.549000
+                      roughness 1.000000
+                      metalness 0
+                    }
+                    geometry DEF drive_wheel_3 Mesh {
+                      url "../protos/rudder_chassis_meshes/drive_wheel_3.STL"
+                    }
+                  }
+                ]
+                name "drive_wheel_3"
+                boundingObject USE drive_wheel_3
+                physics Physics {
+                  density -1
+                  mass 0.260710
+                  centerOfMass [ 0.001058 -0.000023 0.000000 ]
+                  inertiaMatrix [
+                    2.471900e-04 1.749300e-04 1.748900e-04
+                    -1.604300e-06 -8.327000e-22 -4.580600e-21
+                  ]
+                }
+              }
+            }
+          ]
+          name "steer_wheel_3"
+          boundingObject USE steer_wheel_3
+          physics Physics {
+            density -1
+            mass 0.338450
+            centerOfMass [ 0.000509 -0.000011 -0.004939 ]
+            inertiaMatrix [
+              3.822300e-04 3.115500e-04 4.464300e-04
+              -1.569200e-06 -7.756200e-22 -4.454200e-21
+            ]
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE base_link
+    physics Physics {
+      density -1
+      mass 8.183500
+      centerOfMass [ -0.000000 -0.200000 -0.113000 ]
+      inertiaMatrix [
+        6.205900e-01 6.402900e-01 1.260300e+00
+        -1.268500e-16 -9.180900e-19 -2.310800e-18
+      ]
+    }
+  }
+}

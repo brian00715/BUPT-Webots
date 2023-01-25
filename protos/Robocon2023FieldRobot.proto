@@ -1,0 +1,653 @@
+#VRML_SIM R2022b utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the robocon2023_field
+# Extracted from: /home/smkk/wbc_ws/src/robocon2023_field/urdf/robocon2023_field.urdf
+
+PROTO Robocon2023FieldRobot [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "robocon2023_field"  # Is `Robot.name`.
+  field  SFString    controller      "void"               # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                   # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                   # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE                # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                 # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE                # Is `Robot.selfCollision`.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Shape {
+        appearance DEF base_link_material PBRAppearance {
+          roughness 1.000000
+          metalness 0
+        }
+        geometry DEF base_link Mesh {
+          url "../protos/robocon2023_field_meshes/base_link.STL"
+        }
+      }
+      Solid {
+        children [
+          Shape {
+            appearance DEF red_zone_material PBRAppearance {
+              baseColor 1.000000 0.505880 0.462750
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF red_zone Mesh {
+              url "../protos/robocon2023_field_meshes/red_zone.STL"
+            }
+          }
+        ]
+        name "red_zone"
+        boundingObject USE red_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 5.450000 0.409000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF fosse_material PBRAppearance {
+              baseColor 0.392157 0.709804 0.870588
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF fosse Mesh {
+              url "../protos/robocon2023_field_meshes/fosse.STL"
+            }
+          }
+        ]
+        name "fosse"
+        boundingObject USE fosse
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 10.900000 0.000000
+        rotation 0.000000 0.000000 1.000000 3.141593
+        children [
+          Shape {
+            appearance DEF blue_zone_material PBRAppearance {
+              baseColor 0.560784 0.905882 1.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF blue_zone Mesh {
+              url "../protos/robocon2023_field_meshes/blue_zone.STL"
+            }
+          }
+        ]
+        name "blue_zone"
+        boundingObject USE blue_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation -5.700000 -0.250000 0.000000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF red_ring_zone1_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF red_ring_zone1 Mesh {
+              url "../protos/robocon2023_field_meshes/red_ring_zone1.STL"
+            }
+          }
+        ]
+        name "red_ring_zone1"
+        boundingObject USE red_ring_zone1
+        physics Physics {
+        }
+      }
+      Solid {
+        translation -5.700000 -0.250000 0.000000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF red_ring_zone2_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF red_ring_zone2 Mesh {
+              url "../protos/robocon2023_field_meshes/red_ring_zone2.STL"
+            }
+          }
+        ]
+        name "red_ring_zone2"
+        boundingObject USE red_ring_zone2
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 5.700000 5.187500 0.000000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF red_retry_zone_material PBRAppearance {
+              baseColor 0.874510 0.874510 0.133300
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF red_retry_zone Mesh {
+              url "../protos/robocon2023_field_meshes/red_retry_zone.STL"
+            }
+          }
+        ]
+        name "red_retry_zone"
+        boundingObject USE red_retry_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 5.700000 11.150000 0.000000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF blue_ring_zone1_material PBRAppearance {
+              baseColor 0.874510 0.874510 0.133333
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF blue_ring_zone1 Mesh {
+              url "../protos/robocon2023_field_meshes/blue_ring_zone1.STL"
+            }
+          }
+        ]
+        name "blue_ring_zone1"
+        boundingObject USE blue_ring_zone1
+        physics Physics {
+        }
+      }
+      Solid {
+        translation -5.700000 11.150000 0.000000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF blue_ring_zone2_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF blue_ring_zone2 Mesh {
+              url "../protos/robocon2023_field_meshes/blue_ring_zone2.STL"
+            }
+          }
+        ]
+        name "blue_ring_zone2"
+        boundingObject USE blue_ring_zone2
+        physics Physics {
+        }
+      }
+      Solid {
+        translation -5.700000 5.712500 0.000000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF blue_retry_zone_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF blue_retry_zone Mesh {
+              url "../protos/robocon2023_field_meshes/blue_retry_zone.STL"
+            }
+          }
+        ]
+        name "blue_retry_zone"
+        boundingObject USE blue_retry_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 3.700000 0.200000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF anghor_red_material PBRAppearance {
+              baseColor 1.000000 0.505880 0.462750
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF anghor_red Mesh {
+              url "../protos/robocon2023_field_meshes/anghor_red.STL"
+            }
+          }
+        ]
+        name "anghor_red"
+        boundingObject USE anghor_red
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 3.700000 0.200000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF anghor_red_ring_zone_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF anghor_red_ring_zone Mesh {
+              url "../protos/robocon2023_field_meshes/anghor_red_ring_zone.STL"
+            }
+          }
+        ]
+        name "anghor_red_ring_zone"
+        boundingObject USE anghor_red_ring_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 5.450000 0.409000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF angkor_center_material PBRAppearance {
+              baseColor 0.847059 0.482353 0.258823
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF angkor_center Mesh {
+              url "../protos/robocon2023_field_meshes/angkor_center.STL"
+            }
+          }
+        ]
+        name "angkor_center"
+        boundingObject USE angkor_center
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 7.200000 0.199000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF angkor_blue_material PBRAppearance {
+              baseColor 0.560784 0.905882 1.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF angkor_blue Mesh {
+              url "../protos/robocon2023_field_meshes/angkor_blue.STL"
+            }
+          }
+        ]
+        name "angkor_blue"
+        boundingObject USE angkor_blue
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 0.000000 7.200000 0.199000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF angkor_blue_ring_zone_material PBRAppearance {
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF angkor_blue_ring_zone Mesh {
+              url "../protos/robocon2023_field_meshes/angkor_blue_ring_zone.STL"
+            }
+          }
+        ]
+        name "angkor_blue_ring_zone"
+        boundingObject USE angkor_blue_ring_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        translation 3.200000 8.650000 0.208000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_2_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_2 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_2.STL"
+            }
+          }
+        ]
+        name "cylinder1_2"
+        boundingObject USE cylinder1_2
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            1.088562e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 0.000000 8.650000 0.208000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_6_material PBRAppearance {
+              baseColor 0.647060 0.517650 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_6 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_6.STL"
+            }
+          }
+        ]
+        name "cylinder1_6"
+        boundingObject USE cylinder1_6
+        physics Physics {
+          density -1
+          mass 69.468000
+          centerOfMass [ 0.000000 0.366650 0.000000 ]
+          inertiaMatrix [
+            4.424500e+00 2.233900e-01 4.424500e+00
+            1.088600e-16 4.365600e-33 -1.547000e-32
+          ]
+        }
+      }
+      Solid {
+        translation -3.200000 8.650000 0.208000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF cylinder1_3_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_3 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_3.STL"
+            }
+          }
+        ]
+        name "cylinder1_3"
+        boundingObject USE cylinder1_3
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            1.088562e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation -3.200000 2.250000 0.209000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_4_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_4 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_4.STL"
+            }
+          }
+        ]
+        name "cylinder1_4"
+        boundingObject USE cylinder1_4
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            3.005432e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 0.000000 2.250000 0.209000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_5_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_5 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_5.STL"
+            }
+          }
+        ]
+        name "cylinder1_5"
+        boundingObject USE cylinder1_5
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            3.005432e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation -1.300000 6.750000 0.409000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_7_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_7 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_7.STL"
+            }
+          }
+        ]
+        name "cylinder1_7"
+        boundingObject USE cylinder1_7
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ -0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            6.216327e-17 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 1.300000 6.750000 0.409000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_9_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_9 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_9.STL"
+            }
+          }
+        ]
+        name "cylinder1_9"
+        boundingObject USE cylinder1_9
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            6.216327e-17 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 1.300000 4.150000 0.409000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_10_material PBRAppearance {
+              baseColor 0.647060 0.517650 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_10 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_10.STL"
+            }
+          }
+        ]
+        name "cylinder1_10"
+        boundingObject USE cylinder1_10
+        physics Physics {
+          density -1
+          mass 69.468000
+          centerOfMass [ 0.000000 0.366650 -0.000000 ]
+          inertiaMatrix [
+            4.424500e+00 2.233900e-01 4.424500e+00
+            -1.221500e-16 4.365600e-33 -1.547000e-32
+          ]
+        }
+      }
+      Solid {
+        translation -1.300000 4.150000 0.409000
+        rotation 0.577350 0.577350 0.577350 2.094395
+        children [
+          Shape {
+            appearance DEF cylinder1_8_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_8 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_8.STL"
+            }
+          }
+        ]
+        name "cylinder1_8"
+        boundingObject USE cylinder1_8
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            -1.221511e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 0.000000 5.450000 0.409000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF cylinder3_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder3 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder3.STL"
+            }
+          }
+        ]
+        name "cylinder3"
+        boundingObject USE cylinder3
+        physics Physics {
+          density -1
+          mass 237.083991
+          centerOfMass [ -0.000000 0.732471 0.000000 ]
+          inertiaMatrix [
+            4.700844e+01 7.799198e-01 4.700844e+01
+            7.170873e-15 4.800808e-33 -3.470203e-32
+          ]
+        }
+      }
+      Solid {
+        translation 3.200000 2.250000 0.209000
+        rotation 0.577350 0.577352 0.577350 2.094399
+        children [
+          Shape {
+            appearance DEF cylinder1_1_material PBRAppearance {
+              baseColor 0.647059 0.517647 0.000000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF cylinder1_1 Mesh {
+              url "../protos/robocon2023_field_meshes/cylinder1_1.STL"
+            }
+          }
+        ]
+        name "cylinder1_1"
+        boundingObject USE cylinder1_1
+        physics Physics {
+          density -1
+          mass 69.468140
+          centerOfMass [ 0.000000 0.366648 0.000000 ]
+          inertiaMatrix [
+            4.424461e+00 2.233925e-01 4.424461e+00
+            1.088562e-16 4.365566e-33 -1.547012e-32
+          ]
+        }
+      }
+      Solid {
+        translation 0.000000 10.900000 0.000000
+        rotation -0.000000 0.000000 1.000000 3.141600
+        children [
+          Shape {
+            appearance DEF blue_start_zone_material PBRAppearance {
+              baseColor 0.137255 0.133333 0.878431
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF blue_start_zone Mesh {
+              url "../protos/robocon2023_field_meshes/blue_start_zone.STL"
+            }
+          }
+        ]
+        name "blue_start_zone"
+        boundingObject USE blue_start_zone
+        physics Physics {
+        }
+      }
+      Solid {
+        children [
+          Shape {
+            appearance DEF red_start_zone_material PBRAppearance {
+              baseColor 0.874510 0.137255 0.129412
+              roughness 1.000000
+              metalness 0
+            }
+            geometry DEF red_start_zone Mesh {
+              url "../protos/robocon2023_field_meshes/red_start_zone.STL"
+            }
+          }
+        ]
+        name "red_start_zone"
+        boundingObject USE red_start_zone
+        physics Physics {
+          density -1
+          mass 0.000000
+        }
+      }
+    ]
+    name IS name
+    boundingObject USE base_link
+    physics Physics {
+    }
+  }
+}

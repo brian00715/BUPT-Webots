@@ -1,0 +1,4 @@
+uint64 node
+bool include_descendants
+---
+bupt_webots/ContactPoint[] contact_points

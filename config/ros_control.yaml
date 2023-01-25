@@ -1,0 +1,136 @@
+r1:
+  wheel_steer_position_controller:
+    type: position_controllers/JointGroupPositionController
+    joints:
+      - wheel1_steer_joint
+      - wheel2_steer_joint
+      - wheel3_steer_joint
+      - wheel4_steer_joint
+
+  wheel_steer_velocity_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints:
+      - wheel1_steer_joint
+      - wheel2_steer_joint
+      - wheel3_steer_joint
+      - wheel4_steer_joint
+
+  wheel_drive_velocity_controller:
+    type: velocity_controllers/JointGroupVelocityController
+    joints:
+      - wheel1_drive_joint
+      - wheel2_drive_joint
+      - wheel3_drive_joint
+      - wheel4_drive_joint
+  
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    joints:
+      - wheel1_steer_joint
+      - wheel2_steer_joint
+      - wheel3_steer_joint
+      - wheel4_steer_joint
+      - wheel1_drive_joint
+      - wheel2_drive_joint
+      - wheel3_drive_joint
+      - wheel4_drive_joint
+    publish_rate: 50
+
+position_arm_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - j2s6s200_joint_1
+    - j2s6s200_joint_2
+    - j2s6s200_joint_3
+    - j2s6s200_joint_4
+    - j2s6s200_joint_5
+    - j2s6s200_joint_6
+  constraints:
+    stopped_velocity_tolerance: 1
+    
+
+velocity_arm_trajectory_controller:
+  type: "velocity_controllers/JointTrajectoryController"
+  joints:
+    - j2s6s200_joint_1
+    - j2s6s200_joint_2
+    - j2s6s200_joint_3
+    - j2s6s200_joint_4
+    - j2s6s200_joint_5
+    - j2s6s200_joint_6
+  gains: # Required because we're controlling a velocity interface
+    j2s6s200_joint_1: {p: 10,  d: 1, i: 1, i_clamp: 1}
+    j2s6s200_joint_2: {p: 10,  d: 1, i: 1, i_clamp: 1}
+    j2s6s200_joint_3: {p: 10,  d: 1, i: 1, i_clamp: 1}
+    j2s6s200_joint_4: {p: 10,  d: 1, i: 1, i_clamp: 1}
+    j2s6s200_joint_5: {p: 10,  d: 1, i: 1, i_clamp: 1}
+    j2s6s200_joint_6: {p: 10,  d: 1, i: 1, i_clamp: 1}
+  velocity_ff:
+    j2s6s200_joint_1: 1.0
+    j2s6s200_joint_2: 1.0
+    j2s6s200_joint_3: 1.0
+    j2s6s200_joint_4: 1.0
+    j2s6s200_joint_5: 1.0
+    j2s6s200_joint_6: 1.0 
+
+effort_arm_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  constraints:
+    goal_time: 1.0
+    j2s6s200_joint_1:
+      goal: 0.02
+      trajectory: 0.05
+    j2s6s200_joint_2:
+      goal: 0.02
+      trajectory: 0.05
+    j2s6s200_joint_3:
+      goal: 0.02
+      trajectory: 0.05
+    j2s6s200_joint_4:
+      goal: 0.02
+      trajectory: 0.05
+    j2s6s200_joint_5:
+      goal: 0.02
+      trajectory: 0.05
+    j2s6s200_joint_6:
+      goal: 0.02
+      trajectory: 0.05
+    stopped_velocity_tolerance: 0.02
+  gains:
+    j2s6s200_joint_1:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 5000
+    j2s6s200_joint_2:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 5000
+    j2s6s200_joint_3:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 5000
+    j2s6s200_joint_4:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 500
+    j2s6s200_joint_5:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 200
+    j2s6s200_joint_6:
+      d: 0
+      i: 0
+      i_clamp: 10
+      p: 500
+  joints:
+  - j2s6s200_joint_1
+  - j2s6s200_joint_2
+  - j2s6s200_joint_3
+  - j2s6s200_joint_4
+  - j2s6s200_joint_5
+  - j2s6s200_joint_6

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start Webots -->
+    <arg name="no_gui" default="false" doc="Start Webots with minimal GUI" />
+    <include file="$(find bupt_webots)/launch/webots.launch">
+        <arg name="mode" value="realtime" />
+        <arg name="no_gui" value="$(arg no_gui)" />
+        <arg name="world" value="$(find bupt_webots)/worlds/robocon2023.wbt" />
+    </include>
+
+    <!-- <node type="ros_localization" name="ros_localization" pkg="bupt_webots" args="$(arg robot_name)" /> -->
+
+    <!-- <group ns="omni_chassis">
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+        </node>
+        <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+            <param name="rate" value="60"/>
+        </node>
+    </group> -->
+
+    <!-- <group ns="mecanum_chassis">
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+        </node>
+        <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+            <param name="rate" value="60"/>
+        </node>
+    </group> -->
+
+    <rosparam file="$(find bupt_webots)/config/ros_control.yaml" command="load"/>
+    <group ns="r1">
+        <param name="robot_description" textfile="$(find bupt_webots)/urdf/robocon2022_r1.urdf"/>
+        <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+            <param name="tf_prefix" value="r1"/>
+        </node>
+        <!-- <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" respawn="true" respawn_delay="3" launch-prefix="bash -c 'sleep 5; $0 $@' ">
+            <param name="rate" value="60"/>
+            <param name="tf_prefix" value="r1"/>
+        </node> -->
+
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="true" output="screen" args="
+            wheel_drive_velocity_controller
+            wheel_steer_velocity_controller
+            joint_state_controller
+            " />
+    </group>
+
+    <!-- <node pkg="tf" type="static_transform_publisher" name="base_link2map" args="0 0 0 0 0 0 '/Sick LMS 291' /pioneer3at/Sick_LMS_291 100" /> -->
+
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find bupt_webots)/rviz/robocon2023.rviz" />
+</launch>

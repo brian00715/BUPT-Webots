@@ -19,6 +19,9 @@ PROTO Robocon2022R1Robot [
   field  SFBool      supervisor      FALSE            # Is `Robot.supervisor`.
   field  SFBool      synchronization TRUE             # Is `Robot.synchronization`.
   field  SFBool      selfCollision   FALSE            # Is `Robot.selfCollision`.
+  # field  MFNode      gpsSlot []
+  # field  MFNode      compassSlot []
+  # field  MFNode      cameraSlot []
 ]
 {
   Robot {
@@ -69,7 +72,6 @@ PROTO Robocon2022R1Robot [
           ]
         }
       }
-      
       DEF wheel1_steer_joint HingeJoint {
         jointParameters HingeJointParameters {
           axis 0.000000 0.000000 1.000000
@@ -602,6 +604,12 @@ PROTO Robocon2022R1Robot [
             -4.298840e-09 4.673784e-09 1.231857e-06
           ]
         }
+      }
+      DEF gps GPS{
+
+      }
+      DEF compass Compass{
+        rotation 0 1 0 3.14
       }
     ]
     name IS name

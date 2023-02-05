@@ -185,10 +185,14 @@ include_directories(
 #instructions for robot_information_parser node
 
 add_executable(robot_information_parser src/robot_information_parser.cpp)
-
 add_dependencies(robot_information_parser bupt_webots_generate_messages_cpp)
-
 target_link_libraries(robot_information_parser
+	${catkin_LIBRARIES}
+)
+
+add_executable(localization_webots src/localization_webots.cpp)
+add_dependencies(localization_webots bupt_webots_generate_messages_cpp)
+target_link_libraries(localization_webots
 	${catkin_LIBRARIES}
 )
 
